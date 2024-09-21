@@ -1,0 +1,349 @@
+{% include 'admin_header2.html' %}
+
+<div class="main-content">
+    <div class="container1">
+        <h1>Add Music</h1>
+
+        {% if data['musicup']%}
+        <form id="eventForm" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="musicTitle">Music Title</label>
+                <input type="text" id="musicTitle" value="{{data['musicup'][0]['title']}}" name="musicTitle" >
+            </div>
+            <div class="form-group">
+                <label for="audioFile">Audio File</label>
+                <input type="file" id="audioFile" name="audioFile" accept="audio/*" >
+            </div>
+            <div class="form-group">
+                <label for="youtubeLink">YouTube Link</label>
+                <textarea id="youtubeLink" name="youtubeLink" rows="5" >{{data['musicup'][0]['youtube_link']}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="pdfFile">PDF File</label>
+                <input type="file" id="pdfFile" name="pdfFile" accept="application/pdf" >
+            </div>
+
+            <div class="form-group">
+                <label for="youtubeLink">Music lyrics</label>
+                <textarea id="youtubeLink" name="musiclyrics" value="{{data['musicup'][0]['music']}}" rows="5" ></textarea>
+            </div>
+            <button type="submit" value="update" name="update">Submit</button>
+        </form>
+
+        {% else %}
+
+
+        <form id="eventForm" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="musicTitle">Music Title</label>
+                <input type="text" id="musicTitle"  name="musicTitle" >
+            </div>
+            <div class="form-group">
+                <label for="audioFile">Audio File</label>
+                <input type="file" id="audioFile" name="audioFile" accept="audio/*" >
+            </div>
+            <div class="form-group">
+                <label for="youtubeLink">YouTube Link</label>
+                <textarea id="youtubeLink" name="youtubeLink" rows="5" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="pdfFile">PDF File</label>
+                <input type="file" id="pdfFile" name="pdfFile" accept="application/pdf" >
+            </div>
+
+            <div class="form-group">
+                <label for="youtubeLink">Music lyrics</label>
+                <textarea id="youtubeLink" name="musiclyrics"  rows="5" ></textarea>
+            </div>
+            <button type="submit" value="submit" name="submit">Submit</button>
+        </form>
+
+        {% endif %}
+    </div>
+
+    <h1>View Music</h1>
+    <table class="event-table">
+        <thead>
+            <tr>
+                <th>Music Title</th>
+                <th>Audio File</th>
+                <th>YouTube Link</th>
+                <th>PDF File</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data['viewmusic'] %}
+            <tr>
+                <td>{{ row['title'] }}</td>
+                <td><audio controls>
+                 <source src="/{{ row['audio_file'] }}" type="audio/mpeg">
+                 
+                  </audio><a href="/{{ row['audio_file'] }}" download> </a></td>
+                <td><a href="{{ row['youtube_link'] }}" target="_blank">Video link </a></td>
+                <td><a href="/{{ row['pdf_file'] }}" >pdf</a></td>
+                <td class="admin-actions">
+                    <a class="button success" href="?action=update&mid={{ row['music_id'] }}">Edit <i class="fas fa-edit"></i></a>
+                    <a class="button danger" href="?action=delete&mid={{ row['music_id'] }}">Delete <i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo h1 {
+    font-family: 'Brush Script MT', cursive;
+}
+
+.header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.header nav ul li {
+    margin-left: 20px;
+}
+
+.header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.header nav ul li a:hover {
+    color: #007bff;
+}
+
+.sidebar {
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 80px 20px 20px 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.sidebar .nav {
+    list-style-type: none;
+}
+
+.sidebar .nav-item {
+    margin: 10px 0;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #e9ecef;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 150px 20px 20px 270px;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+}
+
+.container1, .container2 {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.container1 h1, .container2 h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group input[type="file"] {
+    border: none;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.event-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-table thead {
+    background-color: #333;
+    color: #fff;
+}
+
+.event-table th, .event-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.event-table tbody tr {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-table tbody tr:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-table img {
+    width: 100px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.admin-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.button.success {
+    background-color: #4CAF50; /* Green */
+    color: #fff;
+}
+
+.button.success:hover {
+    background-color: #45a049;
+}
+
+.button.danger {
+    background-color: #f44336; /* Red */
+    color: #fff;
+}
+
+.button.danger:hover {
+    background-color: #da190b;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+
+    .container1, .container2 {
+        padding: 20px;
+    }
+
+    .event-table th, .event-table td {
+        padding: 10px;
+    }
+
+    .admin-actions {
+        justify-content: space-between;
+    }
+}
+</style>
+
+{% include 'footer.html'%}
+

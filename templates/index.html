@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SREE VENKITESWARA  SEVA SAMITHY  </title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="static/images/logo.jpg" style="width: 80px;height:60px" alt="Temple Logo">    
+            </div>
+            <nav>
+                <span class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </span>
+                <ul class="nav-menu">
+                    <li><a href="#home"  id="homeButton"  onclick="playRandomTrack()">Home</a></li>
+                    <li><a href="#services" id="homeButton"  onclick="playRandomTrack()">Services</a></li>
+                    <li><a href="#about" >About Us</a></li>
+             
+                    <li><a href="#gallery" >Gallery</a></li>
+                    <li><a href="#contact" >Contact Us</a></li>
+                    <!-- <li><a href="login">Sign Up</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Add the rest of your page content here -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = navMenu.querySelectorAll('a'); // Select all navigation links
+
+            // Toggle menu visibility
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('show');
+            });
+
+            // Close menu when a link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('show');
+                });
+            });
+        });
+    </script>
+
+
+
+
+
+
+    <section class="hero" id="home">
+
+        <div id="block"  >
+            <table cellpadding="0" cellspacing="0" border="0" width="238px">
+                <tbody>
+                    <tr>
+                        <td align="left" valign="top" style="height: 303px; width: 238px; background-image: url('NewImages/Day-Bg.jpg'); background-position: top left; background-repeat: no-repeat;">
+                            <table cellpadding="0" cellspacing="0" border="0" width="87%" align="center">
+                                <tbody>
+                                    <tr>
+                                        <td align="center" valign="middle" style="font-size: 14px; padding-top: 5px; font-weight: bold; color: #f3f0f0;">Date Schedules</td>
+                                    </tr>
+                                    <tr>
+                                        <td height="7" align="center"></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" valign="middle" style="font-family: verdana; font-size: 11px; color: #ffffff; line-height: 17px; border-bottom: 1px #eceaea solid;" class="auto-style2">
+                                            <span style="color: #f4efef; font-weight: bold;">
+                                                <span id="cph_Home_spnDate" style="color: #f7f2f2; font-weight: bold;">Events</span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" valign="top" class="auto-style1">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="98%" align="center" style="margin-top: 5px;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="left">
+                                                            <marquee behavior="scroll" direction="up" height="222" onmouseout="this.start();" onmouseover="this.stop();" scrollamount="3" style="font-weight: normal; font-size: 12px; color: #000000; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                                                <div align="left" style="font-family: verdana; padding-left:5px; font-size: 11px; color: #ffffff; padding-top: 5px; line-height: 20px;" valign="top">
+                                                                    <div id="cph_Home_divEvents" style="width:100%">
+                                                                        <table style="width:195px" align="center" cellpadding="0" cellspacing="0" border="0">
+
+                                                                          
+                                                                            <tbody>
+                                                                                {% for row in data['viewevent'] %}
+                                                                                <tr>
+                                                                                    <td class="schedule-time">{{row['date']}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="schedule-event">{{ row['title'] }}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="schedule-event">{{ row['details'] }}</td>
+                                                                                </tr>
+                                                                                {% endfor %}
+                                                                   
+                                                                            </tbody>
+
+                                                                           
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </marquee>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="right-side" >
+           
+       
+            <div class="hero-content">
+
+
+        
+                <p> SREE VENKITESWARA <br> SEVA SAMITHY , KARANAKODAM</p>
+
+               
+            
+                  <p> Regd S. No. E. R 79 of 1971 <br>
+                    Karanakodam, Thammanam P 0, <br> Kochi - 682032
+                    Mob : 9539791971, <br> svss.kdm@gmail.com <br>
+                    "സേവാ ഹി പരമോ ധർമ്മ: "</p> 
+
+
+         
+
+       
+                <a href="login" class="cta">Login</a>
+                <a href="signup"  class="cta">Signup</a>
+            
+            </div>
+     
+     
+        </div>
+    </div>
+
+       
+       
+
+  
+    </section>
+
+
+
+
+    <section class="services" id="services">
+        <h2> Services</h2>
+        <div class="container">
+           
+            <div class="marquee">
+                <div class="services-scroll">
+                    {% for row in data['service'] %}
+                    <div class="card">
+                        <img src="/{{ row['image'] }}" alt="Service 1">
+                        <div class="card-content">
+                            <h3>{{ row['title'] }}</h3>
+                            
+                            <p>{{ row['details'] }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                   
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about" id="about">
+        <div class="container">
+            {% for row in data['about'] %}
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Us</h2>
+                    <p>{{ row['about'] }}</p>
+                </div>
+                <div class="about-image">
+                    <img src="/{{ row['pic'] }}" alt="About Image">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+
+<!-- Gallery Section -->
+<section class="gallery" id="gallery">
+    <h2>Gallery</h2>
+    <div class="container">
+        <div class="gallery-content">
+            {% for row in data['galleryss'] %}
+                {% if row['type'] == "Video" %}
+                    <div class="gallery-item">
+                        <video controls>
+                            <source src="/{{ row['gallery'] }}" type="video/mp4">     
+                        </video>
+                    </div>
+                {% else %}
+                    <div class="gallery-item">
+                        <a href="/{{ row['gallery'] }}">
+                            <img src="/{{ row['gallery'] }}" alt="Gallery Item">
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <br><br>
+    <div>
+        <a href="gallery" class="cta">View More</a>
+    </div>
+</section>
+
+
+
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <div class="container">
+           
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div><h3> <i class="fa fa-map-marker"></i>Our  Address</h3>
+                        <p>Regd S. No. E. R 79 of 1971  <br>
+                            Karanakodam, Thammanam P 0,<br>
+                            Kochi - 682032</p></div>
+                    
+                    <div><h3> <i class="fa fa-envelope"></i>General Enquiries</h3>
+                        <p>svss.kdm@gmail.com </p></div>
+                    
+                    <div> <h3> <i class="fa fa-phone"></i>Call Us</h3>
+                        <p>Mob : +91-9539791971</p></div>
+                    
+                    <div> <h3> <i class="fa fa-clock"></i>Our Timing</h3>
+                        <p>Mon - Sun : 10:00 AM - 07:00 PM</p></div>
+                    
+                </div>
+                <div class="contact-form">
+                    
+                    <form  method="post">
+                        
+                        <input type="text" id="name" name="name"  placeholder="YOUR NAME" required>
+                        
+                      
+                        <input type="email" id="email" name="email" placeholder="YOUR EMAIL" required>
+                       
+                        <input type="number"  maxlength="10" id="number" name="number" placeholder="YOUR NUMBER" required>
+                        
+                    
+                        <textarea id="message" name="message" rows="5"placeholder="YOUR MESSAGE" required></textarea>
+                        
+                        <button type="submit"  value="submit"  name="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="google-map" id="google-map">
+        <h2>Find Us Here</h2>
+        <div class="container">
+            <div id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.3564372992264!2d76.30050949752332!3d9.987386981702931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d3ad070d2d3%3A0xf1ce611996f4833!2sSree%20Venkatachalapathi%20Temple%20Karanakodam!5e0!3m2!1sen!2sin!4v1721378460946!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+    
+
+  
+     <!-- Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-section about">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+               
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>
+                    <i class="fa fa-address-card"></i> Regd S. No. E. R 79 of 1971 <br>
+                    <i class="fa fa-map-marker"></i> Karanakodam, Thammanam P 0, <br> Kochi - 682032 <br>
+                    <i class="fa fa-phone"></i> Mob : 9539791971 <br>
+                    <i class="fa fa-envelope"></i> svss.kdm@gmail.com
+                </p>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="footer-section contact">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/share/G2N5Qt7nfNA7znka/?mibextid=qi2Omg"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://www.youtube.com/@amgellekarnakod"><i class="fa-brands fa-youtube"></i> Youtube</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; Copyright 2024 Sree Venkiteswara Seva Samithy Karanakodam. All Rights Reserved</p>
+    </div>
+</footer>
+<script>
+       // Array of audio tracks
+   var audioTracks = [
+   '/static/audio/WhatsApp Audio 2024-07-21 at 20.25.50_76c75877.mp3',
+   '/static/audio/WhatsApp Audio 2024-07-21 at 20.31.50_29dc0f7c.mp3',
+   '/static/audio/WhatsApp Audio 2024-07-22 at 00.42.18_60d368ba.mp3',
+   '/static/audio/WhatsApp Audio 2024-07-22 at 22.33.36_8297aefd.waptt'
+];
+
+var audio = new Audio();
+
+function playRandomTrack() {
+   // Select a random audio track from the array
+   var randomTrack = audioTracks[Math.floor(Math.random() * audioTracks.length)];
+   
+   // Log the selected track to the console
+   console.log('Playing track:', randomTrack);
+
+   // Update the audio source
+   audio.src = randomTrack;
+
+   // Add event listeners for debugging purposes
+   audio.addEventListener('canplaythrough', function() {
+       audio.play().catch(function(error) {
+           console.error('Playback prevented:', error);
+       });
+   });
+
+   audio.addEventListener('error', function(e) {
+       console.error('Error playing audio track:', e);
+   });
+
+   // Add event listener for when the track ends
+   audio.addEventListener('ended', function() {
+       playRandomTrack(); // Loop through random tracks
+   });
+
+   // Attempt to load the audio file
+   audio.load();
+}
+
+// Automatically play a random track when the page loads
+window.onload = function() {
+   playRandomTrack();
+};
+
+
+</script>
+<style>
+  
+</style>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flashes">
+    {% for message in messages %}
+    <script type="text/javascript">alert("{{message}}")</script>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}

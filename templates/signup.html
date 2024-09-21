@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SREE VENKITESWARA  SEVA SAMITHY   Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Open Sans", sans-serif;
+            height: 100vh;
+            background: url('/static/images/hero.jpg') !important;
+            background-size: cover;
+            padding-top: 80px; /* Adjusted to accommodate fixed header */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            position: fixed; /* Makes the header fixed */
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Ensures the header stays above other content */
+        }
+
+        h1 {
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .containerr {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo img {
+            max-width: 100px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        /* Wrapper Styles */
+        .wrapper {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            min-height: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background-color: #fff;
+            padding: 25px 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .container .title {
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .container .title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 30px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        }
+
+        /* Form Styles */
+        .content form .user-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+        }
+
+        form .user-details .input-box {
+            margin-bottom: 15px;
+            width: calc(100% / 2 - 20px);
+        }
+
+        form .input-box span.details {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .user-details .input-box input {
+            height: 45px;
+            width: 100%;
+            outline: none;
+            font-size: 16px;
+            border-radius: 5px;
+            padding-left: 15px;
+            border: 1px solid #ccc;
+            border-bottom-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .user-details .input-box input:focus,
+        .user-details .input-box input:valid {
+            border-color: #9b59b6;
+        }
+
+        form .button {
+            height: 45px;
+            margin: 35px 0;
+        }
+
+        form .button input {
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #71b7e6, #f2f0f3);
+        }
+
+        form .button input:hover {
+            background: linear-gradient(-135deg, #71b7e6, #f8f7f9);
+        }
+
+        a {
+            font-size: 20px;
+            color: rgb(52, 195, 242);
+            text-decoration: none;
+        }
+
+        .invalid {
+            border-color: #dc3545;
+        }
+
+        .form-text {
+            font-size: 12px;
+            color: #dc3545;
+            display: none;
+        }
+
+        input:invalid ~ .form-text {
+            display: block;
+        }
+
+        @media (max-width: 584px) {
+            .container {
+                max-width: 100%;
+            }
+
+            form .user-details .input-box {
+                margin-bottom: 15px;
+                width: 100%;
+            }
+
+            .content form .user-details {
+                max-height: 300px;
+                overflow-y: scroll;
+            }
+
+            .user-details::-webkit-scrollbar {
+                width: 5px;
+            }
+        }
+
+        @media (max-width: 459px) {
+            .container .content .category {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="containerr">
+            <div class="logo">
+                <img src="/static/images/logo.jpg" style="width: 80px;height:60px" alt="Temple Logo">    
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="title">Registration</div>
+            <div class="content">
+                <form id="registrationForm" method="post">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">Full Name</span>
+                            <input type="text" name="fname" id="firstname" placeholder="Enter your name" required minlength="3" maxlength="50" pattern="[A-Za-z\s]+">
+                            <span class="form-text">Name must be 3-50 characters long and contain only letters.</span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Username</span>
+                            <input type="text" name="uname" id="username" placeholder="Enter your username" required minlength="3" maxlength="20">
+                            <span class="form-text">Username must be 3-20 characters long.</span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Email</span>
+                            <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                            <span class="form-text">Enter a valid email address.</span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Phone Number</span>
+                            <input type="tel" name="phone" id="phoneno" placeholder="Enter your number" required pattern="^\d{10}$">
+                            <span class="form-text">Enter a valid 10-digit phone number.</span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Password</span>
+                            <input type="password" name="pwd" id="password" placeholder="Enter your password" required minlength="6">
+                            <span class="form-text">Password must be at least 6 characters long and use special character .</span>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Confirm Password</span>
+                            <input type="password" name="pwd_confirm" id="Confirmpassword" placeholder="Confirm your password" required>
+                            <span class="form-text">Passwords must match.</span>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" name="submit" value="Register">
+                    </div>
+                    <a href="login">Already have an account?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to speak text
+        function speak(text) {
+            var synth = window.speechSynthesis;
+            var utterance = new SpeechSynthesisUtterance(text);
+            synth.speak(utterance);
+        }
+
+        // Add focus event listeners
+        document.querySelectorAll('.input-box input').forEach(input => {
+            input.addEventListener('focus', function() {
+                const inputId = this.id;
+                const focusMessages = {
+                    'firstname': 'Enter your first name',
+                    'username': 'Enter your username',
+                    'email': 'Enter your email',
+                    'phoneno': 'Enter your phone number',
+                    'password': 'Enter your password',
+                    'Confirmpassword': 'Enter your confirm password'
+                };
+                if (focusMessages[inputId]) {
+                    speak(focusMessages[inputId]);
+                }
+            });
+        });
+
+        // Form validation on submit
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            const form = event.target;
+            let isValid = true;
+
+            // Validate each input field
+            form.querySelectorAll('input').forEach(input => {
+                if (!input.checkValidity()) {
+                    input.classList.add('invalid');
+                    isValid = false;
+                } else {
+                    input.classList.remove('invalid');
+                }
+            });
+
+            // Validate password match
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('Confirmpassword');
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.setCustomValidity('Passwords do not match');
+                confirmPassword.classList.add('invalid');
+                isValid = false;
+            } else {
+                confirmPassword.setCustomValidity('');
+                confirmPassword.classList.remove('invalid');
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+
+        document.addEventListener("contextmenu",(event)=>{
+            event.preventDefault();
+            })
+    </script>
+</body>
+</html>
+
+{% include 'footer.html'%}
+

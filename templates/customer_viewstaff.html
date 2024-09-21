@@ -1,0 +1,198 @@
+{% include 'customer_header2.html' %}
+
+<div class="main-content">
+    <h1>View Persons</h1>
+    <div class="profile-container">
+        {% for row in data['viewstaff'] %}
+        <div class="profile-card">
+            <a href="/{{ row['photo'] }}" >
+                <img src="/{{ row['photo'] }}" alt="Profile Image">
+            </a>
+            <div class="profile-details">
+                <h2>{{ row['name'] }}</h2>
+                <p><strong>Place:</strong> <a href="https://www.google.com/maps/search/?api=1&query={{ row['place'] }}" target="_blank">{{ row['place'] }}</a></p>
+                <p><strong>Email:</strong> <a href="mailto:{{ row['email'] }}">{{ row['email'] }}</a></p>
+                <p><strong>Phone no:</strong> <a href="tel:{{ row['phone'] }}">{{ row['phone'] }}</a> | <a href="sms:{{ row['phone'] }}">Send Text</a></p>
+                <p><strong>Post:</strong> {{ row['job'] }}</p>
+                <p><a href=""></a></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo h1 {
+    font-family: 'Brush Script MT', cursive;
+}
+
+.header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.header nav ul li {
+    margin-left: 20px;
+}
+
+.header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.header nav ul li a:hover {
+    color: #007bff;
+}
+
+.sidebar {
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 80px 20px 20px 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.sidebar .nav {
+    list-style-type: none;
+}
+
+.sidebar .nav-item {
+    margin: 10px 0;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #e9ecef;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 150px 20px 20px 270px;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+}
+
+.profile-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.profile-details {
+    padding: 15px;
+}
+
+.profile-details h2 {
+    margin-bottom: 10px;
+    font-size: 1.25em;
+    color: #007bff;
+}
+
+.profile-details p {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.profile-details a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.profile-details a:hover {
+    color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% include 'footer.html'%}
