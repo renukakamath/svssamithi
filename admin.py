@@ -239,7 +239,7 @@ def kirorwkorrgjerngijrekrhhrtiri():
         p=request.form['details']
         
         img=request.files['image']
-        path="/static/upload/"+str(uuid.uuid4())+img.filename
+        path="static/"+str(uuid.uuid4())+img.filename
         img.save(path) 
         q="insert into service values(null,'%s','%s','%s')" % (path,u,p)
         insert(q)
@@ -272,7 +272,7 @@ def kirorwkorrgjerngijrekrhhrtiri():
         p=request.form['details']
         
         img=request.files['image']
-        path="/static/upload/"+str(uuid.uuid4())+img.filename
+        path="static/"+str(uuid.uuid4())+img.filename
         img.save(path) 
  
        
@@ -292,7 +292,7 @@ def kirorwkorrgjerngijrekrhhrtiri():
         p=request.form['details']
         
         img=request.files['image']
-        path="/static/upload/"+str(uuid.uuid4())+img.filename
+        path="static/"+str(uuid.uuid4())+img.filename
         img.save(path) 
         q="insert into about values(null,'%s','%s')" % (p,path)
         insert(q)
@@ -324,7 +324,7 @@ def kirorwkorrgjerngijrekrhhrtiri():
         p=request.form['details']
         
         img=request.files['image']
-        path="/static/upload/"+str(uuid.uuid4())+img.filename
+        path="static/"+str(uuid.uuid4())+img.filename
         img.save(path) 
  
        
@@ -347,7 +347,7 @@ def kirorwkorrgjerngijrekrhhrtiri():
         p=request.form['type']
         
         img=request.files['image']
-        path="/static/upload/"+str(uuid.uuid4())+img.filename
+        path="static/"+str(uuid.uuid4())+img.filename
         img.save(path) 
         
         q="insert into gallery values(null,'%s','%s')" % (path,p)
@@ -607,11 +607,11 @@ def hsyeyueyhjgbeuroiuowiqqonjwfnqw():
         l=request.form['musiclyrics']
       
         img1=request.files['audioFile']
-        path1="/static/upload/"+str(uuid.uuid4())+img1.filename
+        path1="static/"+str(uuid.uuid4())+img1.filename
         img1.save(path1) 
  
         img2=request.files['pdfFile']
-        path2="/static/upload/"+str(uuid.uuid4())+img2.filename
+        path2="static/"+str(uuid.uuid4())+img2.filename
         img2.save(path2) 
         q="insert into music values(null,'%s','%s','%s','%s','%s')" % (n,e,path1,path2,l)
         insert(q)
@@ -643,11 +643,11 @@ def hsyeyueyhjgbeuroiuowiqqonjwfnqw():
         l=request.form['musiclyrics']
       
         img1=request.files['audioFile']
-        path1="/static/upload/"+str(uuid.uuid4())+img1.filename
+        path1="static/"+str(uuid.uuid4())+img1.filename
         img1.save(path1) 
  
         img2=request.files['pdfFile']
-        path2="/static/upload/"+str(uuid.uuid4())+img2.filename
+        path2="static/"+str(uuid.uuid4())+img2.filename
         img2.save(path2) 
         q="update music set title='%s' ,audio_file='%s', youtube_link='%s',pdf_file='%s',music='%s' where music_id='%s' "%(n,path1,e,path2,l,mid)
         update(q)
@@ -738,7 +738,7 @@ def kaoiwiwuwgfgeugdqyquyqqbdbjwhw():
         j = request.form['job']
 
         img = request.files['imgg']
-        path = "/static/upload/" + str(uuid.uuid4()) + img.filename
+        path = "static/" + str(uuid.uuid4()) + img.filename
         img.save(path)
 
 
@@ -804,7 +804,7 @@ def kaoiwiwuwgfgeugdqyquyqqbdbjwhw():
         j = request.form['job']
 
         img = request.files['imgg']
-        path = "/static/upload/" + str(uuid.uuid4()) + img.filename
+        path = "static/" + str(uuid.uuid4()) + img.filename
         img.save(path)
 
        
@@ -838,7 +838,7 @@ def poeioiejgueyejbvegfeuwiwhqwqhdhqwgd():
         p=request.form['temple_details']
         
         img=request.files['temple_images']
-        path="/static/upload/"+str(uuid.uuid4())+img.filename
+        path="static/"+str(uuid.uuid4())+img.filename
         img.save(path) 
         q="insert into temple values(null,'%s','%s','%s')" % (u,p,path)
         insert(q)
@@ -873,7 +873,7 @@ def poeioiejgueyejbvegfeuwiwhqwqhdhqwgd():
         p=request.form['temple_details']
         
         img=request.files['temple_images']
-        path="/static/upload/"+str(uuid.uuid4())+img.filename
+        path="static/"+str(uuid.uuid4())+img.filename
         img.save(path)
         q="update temple set temple_name='%s' ,details='%s', image='%s' where temple_id='%s' "%(u,p,path,fid)
         update(q)
@@ -897,7 +897,7 @@ def evehjeheighitjueitgnjehgih():
         d=request.form['date']
         
         img=request.files['eventImage']
-        path="/static/upload/"+str(uuid.uuid4())+img.filename
+        path="static/"+str(uuid.uuid4())+img.filename
         img.save(path) 
         q="insert into event values(null,'%s','%s','%s','%s','%s')" % (tid,u,p,path,d)
         insert(q)
@@ -937,7 +937,7 @@ def evehjeheighitjueitgnjehgih():
         d=request.form['date']
         
         img=request.files['eventImage']
-        path="/static/upload/"+str(uuid.uuid4())+img.filename
+        path="static/"+str(uuid.uuid4())+img.filename
         img.save(path)
         q="update event set title='%s' ,details='%s', photo='%s' ,date='%s' where event_id='%s' "%(u,p,path,d,eid)
         update(q)
