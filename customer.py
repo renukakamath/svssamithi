@@ -152,7 +152,7 @@ def dejhejgjhgrwjhfgwhfjwurwyriuwyirw():
         
       
         photo = request.files.get('photo')
-        path = "static/upload/" + str(uuid.uuid4()) + photo.filename
+        path = "/static/upload/" + str(uuid.uuid4()) + photo.filename
         photo.save(path)
 
        
