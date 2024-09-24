@@ -4,9 +4,9 @@ import cloudinary.api
 
 # Configure Cloudinary
 cloudinary.config(
-    cloud_name='dhojqnvsg',
-    api_key='766411243646231',
-    api_secret='KZErp3xo8xIqZqbpUYwF3VghhNY'
+    cloud_name='',
+    api_key='',
+    api_secret=''
 )
 
 def upload_image(file):
