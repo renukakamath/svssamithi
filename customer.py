@@ -5,6 +5,9 @@ from database import*
 
 
 import uuid
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 
@@ -149,11 +152,13 @@ def dejhejgjhgrwjhfgwhfjwurwyriuwyirw():
         address = request.form.get('address')
         birthstar = request.form.get('birthstar')
         gothram = request.form.get('gothram')
+        img=request.files['photo']
+        image_url = upload_image(img)
         
       
-        photo = request.files.get('photo')
-        path = "static/" + str(uuid.uuid4()) + photo.filename
-        photo.save(path)
+        # photo = request.files.get('photo')
+        # path = "static/" + str(uuid.uuid4()) + photo.filename
+        # photo.save(path)
 
        
         
@@ -172,7 +177,7 @@ def dejhejgjhgrwjhfgwhfjwurwyriuwyirw():
         VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')
         """%(session['login_id'], encrypted_fname, encrypted_lname, 
             encrypted_email, encrypted_phone, 
-            encrypted_dob, encrypted_age, gender, path, encrypted_occupation, 
+            encrypted_dob, encrypted_age, gender, image_url, encrypted_occupation, 
             encrypted_address, birthstar, gothram,d_key)
         user_id=insert(insert_user_query)
      

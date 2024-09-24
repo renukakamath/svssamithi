@@ -237,11 +237,13 @@ def kirorwkorrgjerngijrekrhhrtiri():
     if "submit" in request.form:
         u=request.form['title']
         p=request.form['details']
-        
         img=request.files['image']
-        path="static/"+str(uuid.uuid4())+img.filename
-        img.save(path) 
-        q="insert into service values(null,'%s','%s','%s')" % (path,u,p)
+        image_url = upload_image(img)
+        
+        # img=request.files['image']
+        # path="static/"+str(uuid.uuid4())+img.filename
+        # img.save(path) 
+        q="insert into service values(null,'%s','%s','%s')" % (image_url,u,p)
         insert(q)
         flash("successfully")
         return redirect(url_for('admin.kirorwkorrgjerngijrekrhhrtiri'))
@@ -271,12 +273,14 @@ def kirorwkorrgjerngijrekrhhrtiri():
         u=request.form['title']
         p=request.form['details']
         
+        # img=request.files['image']
+        # path="static/"+str(uuid.uuid4())+img.filename
+        # img.save(path) 
         img=request.files['image']
-        path="static/"+str(uuid.uuid4())+img.filename
-        img.save(path) 
+        image_url = upload_image(img)
  
        
-        q="update service set title='%s' ,details='%s', image='%s' where service_id='%s' "%(u,p,path,sid)
+        q="update service set title='%s' ,details='%s', image='%s' where service_id='%s' "%(u,p,image_url,sid)
         update(q)
         flash('successfully')
         return redirect(url_for('admin.kirorwkorrgjerngijrekrhhrtiri'))
@@ -291,10 +295,12 @@ def kirorwkorrgjerngijrekrhhrtiri():
         
         p=request.form['details']
         
-        img=request.files['image']
-        path="static/"+str(uuid.uuid4())+img.filename
-        img.save(path) 
-        q="insert into about values(null,'%s','%s')" % (p,path)
+        # img=request.files['image']
+        # path="static/"+str(uuid.uuid4())+img.filename
+        # img.save(path)
+        img=request.files['temple_images']
+        image_url = upload_image(img) 
+        q="insert into about values(null,'%s','%s')" % (p,image_url)
         insert(q)
         flash("successfully")
         return redirect(url_for('admin.kirorwkorrgjerngijrekrhhrtiri'))
@@ -323,12 +329,14 @@ def kirorwkorrgjerngijrekrhhrtiri():
     if "update1" in request.form:
         p=request.form['details']
         
-        img=request.files['image']
-        path="static/"+str(uuid.uuid4())+img.filename
-        img.save(path) 
+        # img=request.files['image']
+        # path="static/"+str(uuid.uuid4())+img.filename
+        # img.save(path) 
+        img=request.files['temple_images']
+        image_url = upload_image(img)
  
        
-        q="update about set about='%s' ,pic='%s' where about_id='%s' "%(p,path,aid)
+        q="update about set about='%s' ,pic='%s' where about_id='%s' "%(p,image_url,aid)
         update(q)
         flash('successfully')
         return redirect(url_for('admin.kirorwkorrgjerngijrekrhhrtiri'))
@@ -346,11 +354,13 @@ def kirorwkorrgjerngijrekrhhrtiri():
         
         p=request.form['type']
         
+        # img=request.files['image']
+        # path="static/"+str(uuid.uuid4())+img.filename
+        # img.save(path) 
         img=request.files['image']
-        path="static/"+str(uuid.uuid4())+img.filename
-        img.save(path) 
+        image_url = upload_image(img)
         
-        q="insert into gallery values(null,'%s','%s')" % (path,p)
+        q="insert into gallery values(null,'%s','%s')" % (image_url,p)
         insert(q)
         flash("successfully")
         return redirect(url_for('admin.kirorwkorrgjerngijrekrhhrtiri'))
@@ -605,15 +615,19 @@ def hsyeyueyhjgbeuroiuowiqqonjwfnqw():
         n=request.form['musicTitle']
         e=request.form['youtubeLink']
         l=request.form['musiclyrics']
-      
         img1=request.files['audioFile']
-        path1="static/"+str(uuid.uuid4())+img1.filename
-        img1.save(path1) 
- 
+        image_url1 = upload_image(img1)
+      
+        # img1=request.files['audioFile']
+        # path1="static/"+str(uuid.uuid4())+img1.filename
+        # img1.save(path1)
         img2=request.files['pdfFile']
-        path2="static/"+str(uuid.uuid4())+img2.filename
-        img2.save(path2) 
-        q="insert into music values(null,'%s','%s','%s','%s','%s')" % (n,e,path1,path2,l)
+        image_url2 = upload_image(img2) 
+ 
+        # img2=request.files['pdfFile']
+        # path2="static/"+str(uuid.uuid4())+img2.filename
+        # img2.save(path2) 
+        q="insert into music values(null,'%s','%s','%s','%s','%s')" % (n,e,image_url1,image_url2,l)
         insert(q)
         flash("successfully")
         
@@ -641,15 +655,19 @@ def hsyeyueyhjgbeuroiuowiqqonjwfnqw():
         n=request.form['musicTitle']
         e=request.form['youtubeLink']
         l=request.form['musiclyrics']
-      
         img1=request.files['audioFile']
-        path1="static/"+str(uuid.uuid4())+img1.filename
-        img1.save(path1) 
- 
+        image_url1 = upload_image(img1)
+      
+        # img1=request.files['audioFile']
+        # path1="static/"+str(uuid.uuid4())+img1.filename
+        # img1.save(path1) 
         img2=request.files['pdfFile']
-        path2="static/"+str(uuid.uuid4())+img2.filename
-        img2.save(path2) 
-        q="update music set title='%s' ,audio_file='%s', youtube_link='%s',pdf_file='%s',music='%s' where music_id='%s' "%(n,path1,e,path2,l,mid)
+        image_url2 = upload_image(img2)
+ 
+        # img2=request.files['pdfFile']
+        # path2="static/"+str(uuid.uuid4())+img2.filename
+        # img2.save(path2) 
+        q="update music set title='%s' ,audio_file='%s', youtube_link='%s',pdf_file='%s',music='%s' where music_id='%s' "%(n,image_url1,e,image_url2,l,mid)
         update(q)
         flash('successfully')
         return redirect(url_for('admin.hsyeyueyhjgbeuroiuowiqqonjwfnqw'))
@@ -736,10 +754,12 @@ def kaoiwiwuwgfgeugdqyquyqqbdbjwhw():
         e = request.form['email']
         ph = request.form['phone']
         j = request.form['job']
+        img=request.files['imgg']
+        image_url = upload_image(img)
 
-        img = request.files['imgg']
-        path = "static/" + str(uuid.uuid4()) + img.filename
-        img.save(path)
+        # img = request.files['imgg']
+        # path = "static/" + str(uuid.uuid4()) + img.filename
+        # img.save(path)
 
 
         encrypted_name = cipher.encrypt(n.encode()).decode('utf-8')
@@ -748,7 +768,7 @@ def kaoiwiwuwgfgeugdqyquyqqbdbjwhw():
         encrypted_phone = cipher.encrypt(ph.encode()).decode('utf-8')
         encrypted_job = cipher.encrypt(j.encode()).decode('utf-8')
 
-        q = "INSERT INTO staff (job, name, phone, email, place, photo, cipher_key) VALUES ('%s', '%s', '%s', '%s','%s', '%s', '%s')"%(encrypted_job, encrypted_name, encrypted_phone, encrypted_email, encrypted_place, path,cipher_key.decode('utf-8'))
+        q = "INSERT INTO staff (job, name, phone, email, place, photo, cipher_key) VALUES ('%s', '%s', '%s', '%s','%s', '%s', '%s')"%(encrypted_job, encrypted_name, encrypted_phone, encrypted_email, encrypted_place, image_url,cipher_key.decode('utf-8'))
         insert(q)
         flash("Staff member added successfully")
         return redirect(url_for('admin.kaoiwiwuwgfgeugdqyquyqqbdbjwhw'))
@@ -802,10 +822,13 @@ def kaoiwiwuwgfgeugdqyquyqqbdbjwhw():
         e = request.form['email']
         ph = request.form['phone']
         j = request.form['job']
+        img=request.files['imgg']
+        image_url = upload_image(img)
+        
 
-        img = request.files['imgg']
-        path = "static/" + str(uuid.uuid4()) + img.filename
-        img.save(path)
+        # img = request.files['imgg']
+        # path = "static/" + str(uuid.uuid4()) + img.filename
+        # img.save(path)
 
        
         encrypted_name = cipher.encrypt(n.encode()).decode('utf-8')
@@ -819,7 +842,7 @@ def kaoiwiwuwgfgeugdqyquyqqbdbjwhw():
         UPDATE staff 
         SET name = '%s', place = '%s', email =' %s', phone =' %s', job = '%s', photo = '%s'
         WHERE staff_id ='%s'
-        """%(encrypted_name, encrypted_place, encrypted_email, encrypted_phone, encrypted_job, path, sid)
+        """%(encrypted_name, encrypted_place, encrypted_email, encrypted_phone, encrypted_job, image_url, sid)
         update(q)
         flash("Staff member updated successfully")
         return redirect(url_for('admin.kaoiwiwuwgfgeugdqyquyqqbdbjwhw'))
@@ -871,11 +894,13 @@ def poeioiejgueyejbvegfeuwiwhqwqhdhqwgd():
     if "update" in request.form:
         u=request.form['temple_name']
         p=request.form['temple_details']
-        
         img=request.files['temple_images']
-        path="static/"+str(uuid.uuid4())+img.filename
-        img.save(path)
-        q="update temple set temple_name='%s' ,details='%s', image='%s' where temple_id='%s' "%(u,p,path,fid)
+        image_url = upload_image(img)
+        
+        # img=request.files['temple_images']
+        # path="static/"+str(uuid.uuid4())+img.filename
+        # img.save(path)
+        q="update temple set temple_name='%s' ,details='%s', image='%s' where temple_id='%s' "%(u,p,image_url,fid)
         update(q)
         flash('successfully')
         return redirect(url_for('admin.poeioiejgueyejbvegfeuwiwhqwqhdhqwgd'))
@@ -895,11 +920,13 @@ def evehjeheighitjueitgnjehgih():
         u=request.form['eventTitle']
         p=request.form['eventDetails']
         d=request.form['date']
-        
         img=request.files['eventImage']
-        path="static/"+str(uuid.uuid4())+img.filename
-        img.save(path) 
-        q="insert into event values(null,'%s','%s','%s','%s','%s')" % (tid,u,p,path,d)
+        image_url = upload_image(img)
+        
+        # img=request.files['eventImage']
+        # path="static/"+str(uuid.uuid4())+img.filename
+        # img.save(path) 
+        q="insert into event values(null,'%s','%s','%s','%s','%s')" % (tid,u,p,image_url,d)
         insert(q)
         flash("successfully")
         
@@ -935,11 +962,13 @@ def evehjeheighitjueitgnjehgih():
         u=request.form['eventTitle']
         p=request.form['eventDetails']
         d=request.form['date']
-        
         img=request.files['eventImage']
-        path="static/"+str(uuid.uuid4())+img.filename
-        img.save(path)
-        q="update event set title='%s' ,details='%s', photo='%s' ,date='%s' where event_id='%s' "%(u,p,path,d,eid)
+        image_url = upload_image(img)
+        
+        # img=request.files['eventImage']
+        # path="static/"+str(uuid.uuid4())+img.filename
+        # img.save(path)
+        q="update event set title='%s' ,details='%s', photo='%s' ,date='%s' where event_id='%s' "%(u,p,image_url,d,eid)
         update(q)
         flash('successfully')
         return redirect(url_for('admin.evehjeheighitjueitgnjehgih',tid=tid))

@@ -218,6 +218,7 @@ def forgotpassword():
     if "submit" in request.form:
         email = request.form['email']
         uname = request.form['uname']
+        
 
         
         q = "SELECT * FROM registration INNER JOIN login USING (login_id) WHERE username='%s'" % (uname)
