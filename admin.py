@@ -826,7 +826,7 @@ def kaoiwiwuwgfgeugdqyquyqqbdbjwhw():
 
     return render_template('admin_addstaff.html', data=data)
 
-
+from image_upload import upload_image
 @admin.route('/poeioiejgueyejbvegfeuwiwhqwqhdhqwgd',methods=['post','get'])
 def poeioiejgueyejbvegfeuwiwhqwqhdhqwgd():
     
@@ -838,9 +838,9 @@ def poeioiejgueyejbvegfeuwiwhqwqhdhqwgd():
         p=request.form['temple_details']
         
         img=request.files['temple_images']
-        path="static/"+str(uuid.uuid4())+img.filename
-        img.save(path) 
-        q="insert into temple values(null,'%s','%s','%s')" % (u,p,path)
+        image_url = upload_image(img)
+
+        q="insert into temple values(null,'%s','%s','%s')" % (u,p,image_url)
         insert(q)
         flash("successfully")
         
