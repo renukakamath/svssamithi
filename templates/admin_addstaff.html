@@ -29,7 +29,7 @@
            
             <div class="form-group">
                 <label for="eventImage"> Photo</label>
-                <input type="file" id="eventImage" name="imgg" accept="image/*" >
+                <input type="file" id="eventImage" id="imageUpload" name="imgg" accept="image/*" >
             </div>
             <button type="submit" value="update" name="update">Submit</button>
         </form>
@@ -61,7 +61,7 @@
            
             <div class="form-group">
                 <label for="eventImage"> Photo</label>
-                <input type="file" id="eventImage"  required name="imgg" accept="image/*" >
+                <input type="file" id="eventImage" id="imageUpload"  required name="imgg" accept="image/*" >
             </div>
             <button type="submit" value="submit" name="submit">Submit</button>
         </form>
@@ -396,7 +396,34 @@ button[type="submit"]:hover {
     }
 }
 </style>
+<script>
+    document.getElementById('imageUpload').addEventListener('change', function() {
+        const file = this.files[0];
+        const messageElement = document.getElementById('message');
+        const maxSizeKB = 500; // Set maximum size in KB
+        const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
+        if (file) {
+            // Validate file type
+            if (!validTypes.includes(file.type)) {
+                messageElement.textContent = 'Invalid file type. Please upload a JPEG, PNG, or GIF image.';
+                messageElement.style.color = 'red';
+                return;
+            }
+
+            // Validate file size
+            const fileSizeKB = file.size / 1024; // Convert bytes to KB
+            if (fileSizeKB > maxSizeKB) {
+                messageElement.textContent = `File size exceeds ${maxSizeKB} KB. Please upload a smaller image.`;
+                messageElement.style.color = 'red';
+                return;
+            }
+
+            messageElement.textContent = 'File is valid!';
+            messageElement.style.color = 'green';
+        }
+    });
+</script>
 
 {% include 'footer.html'%}
 

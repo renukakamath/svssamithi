@@ -12,7 +12,7 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="serviceImage">Service Image</label>
-                    <input type="file" id="serviceImage"   name="image" required>
+                    <input type="file" id="serviceImage"  id="imageUpload" accept="image/jpeg, image/png, image/gif"  name="image" required>
                 </div>
                 <div class="form-group">
                     <label for="serviceTitle">Service Title</label>
@@ -29,7 +29,7 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="serviceImage">Service Image</label>
-                    <input type="file" id="serviceImage" name="image" required>
+                    <input type="file" id="serviceImage" name="image" id="imageUpload" accept="image/jpeg, image/png, image/gif" required>
                 </div>
                 <div class="form-group">
                     <label for="serviceTitle">Service Title</label>
@@ -84,7 +84,7 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="aboutImage">About Image</label>
-                    <input type="file" id="aboutImage" name="image" required>
+                    <input type="file" id="aboutImage"  id="imageUpload" accept="image/jpeg, image/png, image/gif" name="image" required>
                 </div>
                 <div class="form-group">
                     <label for="aboutDetails">About Details</label>
@@ -99,7 +99,7 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="aboutImage">About Image</label>
-                    <input type="file" id="aboutImage" name="image" required>
+                    <input type="file" id="aboutImage"  id="imageUpload" accept="image/jpeg, image/png, image/gif" name="image" required>
                 </div>
                 <div class="form-group">
                     <label for="aboutDetails">About Details</label>
@@ -127,7 +127,7 @@
             <tbody>
                 {% for row in data['about'] %}
                 <tr>
-                    <td><a href="/{{ row['pic'] }}" download=""><img src="/{{ row['pic'] }}" alt="About Image"></a></td>
+                    <td><a href="{{ row['pic'] }}" download=""><img src="{{ row['pic'] }}" alt="About Image"></a></td>
                     <td>{{ row['about'] }}</td>
                     <td class="admin-actions">
                         <a class="button danger" href="?action2=delete2&aid={{ row['about_id'] }}">Delete <i class="fas fa-trash-alt"></i></a>
@@ -153,7 +153,7 @@
                 <div class="form-group">
                     <label for="galleryImage">Media Type</label>
                     <input type="radio" id="video" name="type" value="Video" required> Video
-                    <input type="radio" id="image" name="type" value="Image" required> Image
+                    <input type="radio" id="image" name="type"  value="Image" required> Image
                 </div>
               
                 <button type="submit" name="gallery">Submit</button>
@@ -177,10 +177,10 @@
                     <td>
                         {% if row['type'] == "Video" %}
                             <video width="320" height="240" controls>
-                                <source src="/{{ row['gallery'] }}" type="video/mp4">
+                                <source src="{{ row['gallery'] }}" type="video/mp4">
                             </video>
                         {% else %}
-                            <a href="/{{ row['gallery'] }}" download=""><img src="/{{ row['gallery'] }}"  style="width: 320px;height:240px"></a>
+                            <a href="{{ row['gallery'] }}" download=""><img src="{{ row['gallery'] }}"  style="width: 320px;height:240px"></a>
                         {% endif %}
                     </td>
                     <td class="admin-actions">
@@ -449,5 +449,34 @@
     }
 
 </style>
+
+<script>
+    document.getElementById('imageUpload').addEventListener('change', function() {
+        const file = this.files[0];
+        const messageElement = document.getElementById('message');
+        const maxSizeKB = 500; // Set maximum size in KB
+        const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+
+        if (file) {
+            // Validate file type
+            if (!validTypes.includes(file.type)) {
+                messageElement.textContent = 'Invalid file type. Please upload a JPEG, PNG, or GIF image.';
+                messageElement.style.color = 'red';
+                return;
+            }
+
+            // Validate file size
+            const fileSizeKB = file.size / 1024; // Convert bytes to KB
+            if (fileSizeKB > maxSizeKB) {
+                messageElement.textContent = `File size exceeds ${maxSizeKB} KB. Please upload a smaller image.`;
+                messageElement.style.color = 'red';
+                return;
+            }
+
+            messageElement.textContent = 'File is valid!';
+            messageElement.style.color = 'green';
+        }
+    });
+</script>
 
 {% include 'footer.html'%}
