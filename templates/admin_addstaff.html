@@ -85,7 +85,7 @@
             <tbody>
                 {% for row in data['viewstaff'] %}
                 <tr>
-                    <td><a href="/{{ row['photo'] }}" download=""><img src="/{{ row['photo'] }}" alt="Event Image 1"></a></td>
+                    <td><a href="{{ row['photo'] }}" download=""><img src="{{ row['photo'] }}" alt="Event Image 1"></a></td>
                     <td>{{ row['name'] }}</td>
                     <td>{{ row['place'] }}</td>
                     <td>{{ row['email'] }}</td>

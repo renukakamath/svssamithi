@@ -5,8 +5,8 @@
     <div class="profile-container">
         {% for row in data['viewstaff'] %}
         <div class="profile-card">
-            <a href="/{{ row['photo'] }}" >
-                <img src="/{{ row['photo'] }}" alt="Profile Image">
+            <a href="{{ row['photo'] }}" >
+                <img src="{{ row['photo'] }}" alt="Profile Image">
             </a>
             <div class="profile-details">
                 <h2>{{ row['name'] }}</h2>

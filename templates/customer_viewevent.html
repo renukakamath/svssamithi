@@ -6,8 +6,8 @@
         {% for row in data['viewevent'] %}
         <div class="card">
             <div class="card-image">
-                <a href="/{{ row['photo'] }}" download="">
-                    <img src="/{{ row['photo'] }}" alt="Event Image">
+                <a href="{{ row['photo'] }}" download="">
+                    <img src="{{ row['photo'] }}" alt="Event Image">
                 </a>
             </div>
             <div class="card-content">

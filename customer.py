@@ -2,7 +2,7 @@
 from flask import * 
 from database import*
 
-
+from image_upload import*
 
 import uuid
 import cloudinary

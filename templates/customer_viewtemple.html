@@ -5,7 +5,7 @@
     <div class="card-container">
         {% for row in data['viewtemple'] %}
         <div class="card">
-            <img src="/{{ row['image'] }}" alt="Temple Image">
+            <img src="{{ row['image'] }}" alt="Temple Image">
             <div class="card-content">
                 <h4>{{ row['temple_name'] }}</h4>
                 <!-- <p>{{ row['details'] }}</p> -->

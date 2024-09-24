@@ -77,11 +77,11 @@
             <tr>
                 <td>{{ row['title'] }}</td>
                 <td><audio controls>
-                 <source src="/{{ row['audio_file'] }}" type="audio/mpeg">
+                 <source src="{{ row['audio_file'] }}" type="audio/mpeg">
                  
-                  </audio><a href="/{{ row['audio_file'] }}" download> </a></td>
+                  </audio><a href="{{ row['audio_file'] }}" download> </a></td>
                 <td><a href="{{ row['youtube_link'] }}" target="_blank">Video link </a></td>
-                <td><a href="/{{ row['pdf_file'] }}" >pdf</a></td>
+                <td><a href="{{ row['pdf_file'] }}" >pdf</a></td>
                 <td class="admin-actions">
                     <a class="button success" href="?action=update&mid={{ row['music_id'] }}">Edit <i class="fas fa-edit"></i></a>
                     <a class="button danger" href="?action=delete&mid={{ row['music_id'] }}">Delete <i class="fas fa-trash-alt"></i></a>

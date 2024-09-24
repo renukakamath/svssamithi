@@ -22,7 +22,7 @@
             <tbody>
                 {% for user in data['viewuserdetails'] %}
                 <tr>
-                    <td><a href="/{{user['photo']}}"><img src="/{{user['photo']}}"  width="150" height="150" alt="User Photo" ></a></td>
+                    <td><a href="{{user['photo']}}"><img src="{{user['photo']}}"  width="150" height="150" alt="User Photo" ></a></td>
                     <td>{{user['fname']}} {{user['lname']}}</td>
                     <td>{{user['email']}}</td>
                     <td>{{user['phone']}}</td>

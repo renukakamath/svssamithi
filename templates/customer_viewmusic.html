@@ -8,7 +8,7 @@
             <div class="card-header">
                 <h2 class="title">{{ row['title'] }}</h2>
                 <audio controls>
-                    <source src="/{{ row['audio_file'] }}" type="audio/mpeg">
+                    <source src="{{ row['audio_file'] }}" type="audio/mpeg">
                 </audio>
                 <div class="media-icons">
                     {% if row['youtube_link'] %}
@@ -17,7 +17,7 @@
                     </a>
                     {% endif %}
                     {% if row['pdf_file'] %}
-                    <a href="/{{ row['pdf_file'] }}" >
+                    <a href="{{ row['pdf_file'] }}" >
                         
                         <i class="fa-solid fa-file-pdf" ></i>
                     </a>
