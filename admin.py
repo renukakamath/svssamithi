@@ -628,16 +628,15 @@ def hsyeyueyhjgbeuroiuowiqqonjwfnqw():
         
       
         # Pass the file to the upload_pdf function
-        file_url = upload_pdf(pdf_file)
-        print(pdf_file)
-        print(file_url)
+        file_url1 = upload_pdf(pdf_file)
+ 
         
         
  
         # img2=request.files['pdfFile']
         # path2="static/"+str(uuid.uuid4())+img2.filename
         # img2.save(path2) 
-        q="insert into music values(null,'%s','%s','%s','%s','%s')" % (n,e,upload_audio1,file_url,l)
+        q="insert into music values(null,'%s','%s','%s','%s','%s')" % (n,e,upload_audio1,file_url1,l)
         insert(q)
         flash("successfully")
         
@@ -678,14 +677,13 @@ def hsyeyueyhjgbeuroiuowiqqonjwfnqw():
         
       
         # Pass the file to the upload_pdf function
-        file_url = upload_pdf(pdf_file)
-        print(pdf_file)
-        print(file_url)
+        file_url1 = upload_pdf(pdf_file)
+    
  
         # img2=request.files['pdfFile']
         # path2="static/"+str(uuid.uuid4())+img2.filename
         # img2.save(path2) 
-        q="update music set title='%s' ,audio_file='%s', youtube_link='%s',pdf_file='%s',music='%s' where music_id='%s' "%(n,upload_audio1,e,file_url,l,mid)
+        q="update music set title='%s' ,audio_file='%s', youtube_link='%s',pdf_file='%s',music='%s' where music_id='%s' "%(n,upload_audio1,e,file_url1,l,mid)
         update(q)
         flash('successfully')
         return redirect(url_for('admin.hsyeyueyhjgbeuroiuowiqqonjwfnqw'))
