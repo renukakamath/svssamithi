@@ -53,6 +53,7 @@ def upload_audio(file):
 def upload_pdf(file_path):
     try:
         response = cloudinary.uploader.upload(file_path, resource_type="image")
+        
         print("Upload successful.")
         print("File URL:", response['url'])
     except Exception as e:
