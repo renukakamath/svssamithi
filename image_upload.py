@@ -39,7 +39,7 @@ def upload_video(file):
 
 def upload_audio(file):
     # Upload an audio file
-    response = cloudinary.uploader.upload(file, resource_type="audio")
+    response = cloudinary.uploader.upload(file, resource_type="video")
 
     # Print the response details
     print("Uploaded Audio Details:")
@@ -50,16 +50,17 @@ def upload_audio(file):
 
 
 
-def upload_pdf(file):
-    # Upload a PDF file
-    response = cloudinary.uploader.upload(file, resource_type="raw")
+def upload_pdf(file_path):
+    try:
+        response = cloudinary.uploader.upload(file_path, resource_type="image")
+        print("Upload successful.")
+        print("File URL:", response['url'])
+    except Exception as e:
+        print("Upload failed:", str(e))
 
-    # Print the response details
-    print("Uploaded PDF Details:")
-    print(f"Public ID: {response['public_id']}")
-    print(f"URL: {response['url']}")
-    
-    return response['url']
+# Example usage
+upload_pdf("path_to_your_pdf_file.pdf")
+
 
 
 
