@@ -39,7 +39,7 @@ def upload_video(file):
 
 def upload_audio(file):
     # Upload an audio file
-    response = cloudinary.uploader.upload(file, resource_type="video")
+    response = cloudinary.uploader.upload(file, resource_type="audio")
 
     # Print the response details
     print("Uploaded Audio Details:")

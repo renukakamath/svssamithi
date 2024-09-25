@@ -59,13 +59,13 @@
                 {% if row['type'] == "Video" %}
                     <div class="gallery-item">
                         <video controls>
-                            <source src="/{{ row['gallery'] }}" type="video/mp4">     
+                            <source src="{{ row['gallery'] }}" type="video/mp4">     
                         </video>
                     </div>
                 {% else %}
                     <div class="gallery-item">
-                        <a href="/{{ row['gallery'] }}">
-                            <img src="/{{ row['gallery'] }}" alt="Gallery Item">
+                        <a href="{{ row['gallery'] }}">
+                            <img src="{{ row['gallery'] }}" alt="Gallery Item">
                         </a>
                     </div>
                 {% endif %}
