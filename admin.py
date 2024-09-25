@@ -6,7 +6,7 @@ import smtplib
 from email.mime.text import MIMEText
 from flask_mail import Mail
 
-
+from image_upload import*
 
 admin=Blueprint('admin',__name__)
 
@@ -358,9 +358,9 @@ def kirorwkorrgjerngijrekrhhrtiri():
         # path="static/"+str(uuid.uuid4())+img.filename
         # img.save(path) 
         img=request.files['image']
-        image_url = upload_image(img)
+        image_urls = upload_file(img)
         
-        q="insert into gallery values(null,'%s','%s')" % (image_url,p)
+        q="insert into gallery values(null,'%s','%s')" % (image_urls,p)
         insert(q)
         flash("successfully")
         return redirect(url_for('admin.kirorwkorrgjerngijrekrhhrtiri'))
@@ -616,18 +616,18 @@ def hsyeyueyhjgbeuroiuowiqqonjwfnqw():
         e=request.form['youtubeLink']
         l=request.form['musiclyrics']
         img1=request.files['audioFile']
-        image_url1 = upload_image(img1)
+        upload_audio1 = upload_audio(img1)
       
         # img1=request.files['audioFile']
         # path1="static/"+str(uuid.uuid4())+img1.filename
         # img1.save(path1)
         img2=request.files['pdfFile']
-        image_url2 = upload_image(img2) 
+        upload_pdf2 = upload_pdf(img2) 
  
         # img2=request.files['pdfFile']
         # path2="static/"+str(uuid.uuid4())+img2.filename
         # img2.save(path2) 
-        q="insert into music values(null,'%s','%s','%s','%s','%s')" % (n,e,image_url1,image_url2,l)
+        q="insert into music values(null,'%s','%s','%s','%s','%s')" % (n,e,upload_audio1,upload_pdf2,l)
         insert(q)
         flash("successfully")
         

@@ -170,7 +170,7 @@
                 <div class="services-scroll">
                     {% for row in data['service'] %}
                     <div class="card">
-                        <img src="/{{ row['image'] }}" alt="Service 1">
+                        <img src="{{ row['image'] }}" alt="Service 1">
                         <div class="card-content">
                             <h3>{{ row['title'] }}</h3>
                             
@@ -196,7 +196,7 @@
                     <p>{{ row['about'] }}</p>
                 </div>
                 <div class="about-image">
-                    <img src="/{{ row['pic'] }}" alt="About Image">
+                    <img src="{{ row['pic'] }}" alt="About Image">
                 </div>
             </div>
             {% endfor %}
@@ -213,13 +213,13 @@
                 {% if row['type'] == "Video" %}
                     <div class="gallery-item">
                         <video controls>
-                            <source src="/{{ row['gallery'] }}" type="video/mp4">     
+                            <source src="{{ row['gallery'] }}" type="video/mp4">     
                         </video>
                     </div>
                 {% else %}
                     <div class="gallery-item">
-                        <a href="/{{ row['gallery'] }}">
-                            <img src="/{{ row['gallery'] }}" alt="Gallery Item">
+                        <a href="{{ row['gallery'] }}">
+                            <img src="{{ row['gallery'] }}" alt="Gallery Item">
                         </a>
                     </div>
                 {% endif %}
