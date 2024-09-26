@@ -612,35 +612,33 @@ def hsyeyueyhjgbeuroiuowiqqonjwfnqw():
     data['viewmusic']=res
     
     if "submit" in request.form:
-        n=request.form['musicTitle']
-        e=request.form['youtubeLink']
-        l=request.form['musiclyrics']
-        img1=request.files['audioFile']
-        upload_audio1 = upload_audio(img1)
-      
-        # img1=request.files['audioFile']
-        # path1="static/"+str(uuid.uuid4())+img1.filename
-        # img1.save(path1)
+        n = request.form['musicTitle']
+        e = request.form['youtubeLink']
+        l = request.form['musiclyrics']
         
+        img1 = request.files.get('audioFile')  # Use .get to safely fetch the file
         
-     
-        # pdf_file = request.files['pdfFile']
+        if img1 and img1.filename != '':
+            upload_audio1 = upload_audio(img1)
+        else:
+            upload_audio1 = 'NULL'  # If no file is uploaded, assign 'NULL'
+
+        # Optional: Handle PDF upload similarly if needed
+        # pdf_file = request.files.get('pdfFile')
         
-      
-        # Pass the file to the upload_pdf function
-        # file_url1 = upload_pdf(pdf_file)
- 
-        
-        
- 
-        # img2=request.files['pdfFile']
-        # path2="static/"+str(uuid.uuid4())+img2.filename
-        # img2.save(path2) 
-        q="insert into music values(null,'%s','%s','%s','0','%s')" % (n,e,upload_audio1,l)
+        # Use the correct value for the audio file in the SQL query
+        if upload_audio1 == 'NULL':
+            q = "insert into music values(null,'%s','%s',NULL,'%s')" % (n, e, l)
+        else:
+            q = "insert into music values(null,'%s','%s','%s','%s')" % (n, e, upload_audio1, l)
+
         insert(q)
-        flash("successfully")
-        
+        flash("Successfully submitted!")
         return redirect(url_for('admin.hsyeyueyhjgbeuroiuowiqqonjwfnqw'))
+    
+    
+   
+
     
     
     if "action" in request.args:
