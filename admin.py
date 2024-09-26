@@ -628,11 +628,11 @@ def hsyeyueyhjgbeuroiuowiqqonjwfnqw():
         
         # Use the correct value for the audio file in the SQL query
         if upload_audio1 == 'NULL':
-            q = "insert into music values(null,'%s','%s','0','%s')" % (n, e, l)
+            q = "insert into music values(null,'%s','%s','0','0','%s')" % (n, e, l)
+            insert(q)
         else:
-            q = "insert into music values(null,'%s','%s','%s','%s')" % (n, e, upload_audio1, l)
-
-        insert(q)
+            q = "insert into music values(null,'%s','%s','%s','0','%s')" % (n, e, upload_audio1, l)
+            insert(q)
         flash("Successfully submitted!")
         return redirect(url_for('admin.hsyeyueyhjgbeuroiuowiqqonjwfnqw'))
     
