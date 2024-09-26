@@ -89,7 +89,7 @@
       <tbody>
         {% for row in data['viewuserdetails'] %}
         <tr>
-          <td><a href="/{{ row['photo'] }}"><img src="/{{ row['photo'] }}" alt="User Photo" width="100" height="100"></a></td>
+          <td><a href="{{ row['photo'] }}"><img src="{{ row['photo'] }}" alt="User Photo" width="100" height="100"></a></td>
           <td>{{ row['fname'] }} {{ row['lname'] }}</td>
           <td>{{ row['dob'] }}</td>
           <td>{{ row['email'] }}<br>{{ row['phone'] }}<br>{{ row['address'] }}</td>
