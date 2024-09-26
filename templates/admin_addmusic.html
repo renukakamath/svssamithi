@@ -18,10 +18,10 @@
                 <label for="youtubeLink">YouTube Link</label>
                 <textarea id="youtubeLink" name="youtubeLink" rows="5" >{{data['musicup'][0]['youtube_link']}}</textarea>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="pdfFile">PDF File</label>
                 <input type="file" id="pdfFile" name="pdfFile" accept="application/pdf" >
-            </div>
+            </div> -->
 
             <div class="form-group">
                 <label for="youtubeLink">Music lyrics</label>
@@ -46,10 +46,10 @@
                 <label for="youtubeLink">YouTube Link</label>
                 <textarea id="youtubeLink" name="youtubeLink" rows="5" ></textarea>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="pdfFile">PDF File</label>
                 <input type="file" id="pdfFile" name="pdfFile" accept="application/pdf" >
-            </div>
+            </div> -->
 
             <div class="form-group">
                 <label for="youtubeLink">Music lyrics</label>
@@ -68,7 +68,7 @@
                 <th>Music Title</th>
                 <th>Audio File</th>
                 <th>YouTube Link</th>
-                <th>PDF File</th>
+                <!-- <th>PDF File</th> -->
                 <th>Actions</th>
             </tr>
         </thead>
@@ -81,7 +81,7 @@
                  
                   </audio><a href="{{ row['audio_file'] }}" download> </a></td>
                 <td><a href="{{ row['youtube_link'] }}" target="_blank">Video link </a></td>
-                <td><a href="{{ row['pdf_file'] }}" >pdf</a></td>
+                <!-- <td><a href="{{ row['pdf_file'] }}" >pdf</a></td> -->
                 <td class="admin-actions">
                     <a class="button success" href="?action=update&mid={{ row['music_id'] }}">Edit <i class="fas fa-edit"></i></a>
                     <a class="button danger" href="?action=delete&mid={{ row['music_id'] }}">Delete <i class="fas fa-trash-alt"></i></a>
