@@ -342,7 +342,7 @@ def kirorwkorrgjerngijrekrhhrtiri():
         # img=request.files['image']
         # path="static/"+str(uuid.uuid4())+img.filename
         # img.save(path) 
-        img=request.files['temple_images']
+        img=request.files['image']
         image_url = upload_image(img)
  
        

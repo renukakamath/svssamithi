@@ -62,8 +62,9 @@
                 </div>
                 <div class="form-group">
                     <label for="photo"><i class="fas fa-camera"></i> Photo</label>
-                    <input type="file" id="photo" id="imageUpload" name="photo" accept="image/*" required aria-describedby="photoHelp">
-                    <small id="photoHelp" class="form-text text-muted">Upload your photo (JPG, PNG).</small>
+                    <input type="file"  id="imageUpload" name="photo" accept="image/*" required >
+                   
+                    <p id="message"></p>
                 </div>
                 <div class="form-group">
                     <label for="occupation"><i class="fa-solid fa-star"></i> Birth Star</label>
@@ -384,7 +385,7 @@ document.querySelectorAll('input, textarea').forEach(element => {
             case 'birthstar':
                 textToSpeak = 'Enter your birthstar';
                 break;
-            case 'photo':
+            case 'imageUpload':
                 textToSpeak = 'Select your photo';
                 break;
         }

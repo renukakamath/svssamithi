@@ -12,15 +12,16 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="serviceImage">Service Image (kb files)</label>
-                    <input type="file" id="serviceImage"  id="imageUpload" accept="image/jpeg, image/png, image/gif"  name="image" required>
+                    <input type="file"  id="imageUpload" accept="image/jpeg, image/png, image/gif"  name="image" required>
+                    <p id="message"></p>
                 </div>
                 <div class="form-group">
                     <label for="serviceTitle">Service Title</label>
-                    <input type="text" id="serviceTitle" name="title"  value="{{data['serviceup'][0]['title']}}" placeholder="Service Title" required>
+                    <input type="text" name="title"  value="{{data['serviceup'][0]['title']}}" placeholder="Service Title" required>
                 </div>
                 <div class="form-group">
                     <label for="serviceDetails">Service Details</label>
-                    <textarea id="serviceDetails" name="details" rows="5"   placeholder="Service Details" required>{{data['serviceup'][0]['details']}}</textarea>
+                    <textarea  name="details" rows="5"   placeholder="Service Details" required>{{data['serviceup'][0]['details']}}</textarea>
                 </div>
                 <button type="submit" name="update">Submit</button>
             </form>
@@ -29,15 +30,16 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="serviceImage">Service Image (kb files)</label>
-                    <input type="file" id="serviceImage" name="image" id="imageUpload" accept="image/jpeg, image/png, image/gif" required>
+                    <input type="file" name="image" id="imageUpload" accept="image/jpeg, image/png, image/gif" required>
+                    <p id="message"></p>
                 </div>
                 <div class="form-group">
                     <label for="serviceTitle">Service Title</label>
-                    <input type="text" id="serviceTitle" name="title" placeholder="Service Title" required>
+                    <input type="text"  name="title" placeholder="Service Title" required>
                 </div>
                 <div class="form-group">
                     <label for="serviceDetails">Service Details</label>
-                    <textarea id="serviceDetails" name="details" rows="5" placeholder="Service Details" required></textarea>
+                    <textarea  name="details" rows="5" placeholder="Service Details" required></textarea>
                 </div>
                 <button type="submit" name="submit">Submit</button>
             </form>
@@ -84,11 +86,12 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="aboutImage">About Image (kb files)</label>
-                    <input type="file" id="aboutImage"  id="imageUpload" accept="image/jpeg, image/png, image/gif" name="image" required>
+                    <input type="file"  id="imageUpload" accept="image/jpeg, image/png, image/gif" name="image" required>
+                    <p id="message"></p>
                 </div>
                 <div class="form-group">
                     <label for="aboutDetails">About Details</label>
-                    <textarea id="aboutDetails" name="details" rows="5" placeholder="About Details" required>{{data['aboutup'][0]['about']}}</textarea>
+                    <textarea  name="details" rows="5" placeholder="About Details" required>{{data['aboutup'][0]['about']}}</textarea>
                 </div>
                 <button type="submit" name="update1">Submit</button>
             </form>
@@ -99,11 +102,12 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="aboutImage">About Image (kb files)</label>
-                    <input type="file" id="aboutImage"  id="imageUpload" accept="image/jpeg, image/png, image/gif" name="image" required>
+                    <input type="file"  id="imageUpload" accept="image/jpeg, image/png, image/gif" name="image" required>
+                    <p id="message"></p>
                 </div>
                 <div class="form-group">
                     <label for="aboutDetails">About Details</label>
-                    <textarea id="aboutDetails" name="details" rows="5" placeholder="About Details" required></textarea>
+                    <textarea  name="details" rows="5" placeholder="About Details" required></textarea>
                 </div>
                 <button type="submit" name="about">Submit</button>
             </form>
