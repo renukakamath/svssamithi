@@ -28,7 +28,8 @@
                     <td class="admin-actions">
                         <a class="button success" href="?action=accept&lid={{ row['login_id'] }}">Accept <i class="fa fa-check-square"></i></a>
                         <a class="button danger" href="?action=reject&lid={{ row['login_id'] }}">Reject <i   class="fa fa-close" ></i></a>
-                    </td>
+                        <a class="button danger" href="?action=remove&lid={{ row['login_id'] }}">Remove <i   class="fa fa-close" ></i></a>
+                    </td>             
                     {% else %}
                     <td>{{ row['usertype'] }}</td>
                     {% endif %}

@@ -224,6 +224,16 @@ def jfoojrtngniejjiwnwgbiwijhfwe():
                 flash('User rejected and email sent.')
 
         return redirect(url_for('admin.jfoojrtngniejjiwnwgbiwijhfwe'))
+    
+    
+    if action=='remove':
+        q="delete from  login where login_id='%s'"%(lid)
+        delete(q)
+        q="delete from registration where login_id='%s'"%(lid)
+        delete(q)
+        flash("successfully")
+        return redirect(url_for('admin.jfoojrtngniejjiwnwgbiwijhfwe'))
+        
 
     return render_template('admin_home.html', data=data)
 
