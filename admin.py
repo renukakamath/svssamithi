@@ -628,7 +628,7 @@ def hsyeyueyhjgbeuroiuowiqqonjwfnqw():
         
         # Use the correct value for the audio file in the SQL query
         if upload_audio1 == 'NULL':
-            q = "insert into music values(null,'%s','%s',NULL,'%s')" % (n, e, l)
+            q = "insert into music values(null,'%s','%s','0','%s')" % (n, e, l)
         else:
             q = "insert into music values(null,'%s','%s','%s','%s')" % (n, e, upload_audio1, l)
 
