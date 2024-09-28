@@ -41,8 +41,8 @@
             </div>
             <div class="form-group">
                 <label for="audioFile">Audio File (kb files)</label>
-                <input type="file" id="fileInput" accept="audio/*"  name="audioFile" >
-                <p id="errorMessage" style="color:red;"></p>
+                <input type="file" id="audioUpload"  accept="audio/*"  name="audioFile" >
+                <p id="message"></p>
             </div>
             <div class="form-group">
                 <label for="youtubeLink">YouTube Link</label>
@@ -350,36 +350,33 @@ button[type="submit"]:hover {
 
 
 <script>
-    document.getElementById("uploadForm").addEventListener("submit", function(event) {
-        const fileInput = document.getElementById("fileInput");
-        const file = fileInput.files[0];
-    
-        // Max size in bytes (500 KB)
-        const maxSize = 500 * 1024;
-    
-        if (!file) {
-            document.getElementById("errorMessage").innerText = "No file selected.";
-            event.preventDefault();
-            return;
-        }
-    
-        // Check file type (audio)
-        const validAudioTypes = ["audio/mpeg", "audio/wav", "audio/ogg"];
-        
-        if (!validAudioTypes.includes(file.type)) {
-            document.getElementById("errorMessage").innerText = "Invalid file type. Only audio files are allowed.";
-            event.preventDefault();
-            return;
-        }
-    
-        // Check file size
-        if (file.size > maxSize) {
-            document.getElementById("errorMessage").innerText = "File is too large. Max size is 500 KB.";
-            event.preventDefault();
+    document.getElementById('audioUpload').addEventListener('change', function() {
+        const file = this.files[0];
+        const messageElement = document.getElementById('message');
+        const maxSizeKB = 3000; // Set maximum size in KB (e.g., 3000 KB = 3 MB)
+        const validTypes = ['audio/mpeg', 'audio/wav', 'audio/ogg']; // Valid audio types
+
+        if (file) {
+            // Validate file type
+            if (!validTypes.includes(file.type)) {
+                messageElement.textContent = 'Invalid file type. Please upload an MP3, WAV, or OGG audio file.';
+                messageElement.style.color = 'red';
+                return;
+            }
+
+            // Validate file size
+            const fileSizeKB = file.size / 1024; // Convert bytes to KB
+            if (fileSizeKB > maxSizeKB) {
+                messageElement.textContent = `File size exceeds ${maxSizeKB} KB. Please upload a smaller audio file.`;
+                messageElement.style.color = 'red';
+                return;
+            }
+
+            messageElement.textContent = 'File is valid!';
+            messageElement.style.color = 'green';
         }
     });
-    </script>
-
+</script>
 
 {% include 'footer.html'%}
 
