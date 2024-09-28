@@ -150,7 +150,8 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="galleryImage">Gallery Image/Videos (kb files)</label>
-                    <input type="file" id="galleryImage" name="image" required>
+                    <input type="file" id="fileInput" accept="image/*, video/*" name="image" required>
+                    <p id="errorMessage" style="color:red;"></p>
                 </div>
 
 
@@ -165,6 +166,39 @@
         </div>
     </div>
 
+    <script>
+
+   document.getElementById("uploadForm").addEventListener("submit", function(event) {
+    const fileInput = document.getElementById("fileInput");
+    const file = fileInput.files[0];
+
+    // Max size in bytes (500 KB)
+    const maxSize = 500 * 1024;
+    
+    if (!file) {
+        document.getElementById("errorMessage").innerText = "No file selected.";
+        event.preventDefault();
+        return;
+    }
+
+    // Check file type
+    const fileType = file.type;
+    const validImageTypes = ["image/jpeg", "image/png", "image/gif"];
+    const validVideoTypes = ["video/mp4", "video/webm", "video/ogg"];
+
+    if (![...validImageTypes, ...validVideoTypes].includes(fileType)) {
+        document.getElementById("errorMessage").innerText = "Invalid file type. Only images and videos are allowed.";
+        event.preventDefault();
+        return;
+    }
+
+    // Check file size
+    if (file.size > maxSize) {
+        document.getElementById("errorMessage").innerText = "File is too large. Max size is 500 KB.";
+        event.preventDefault();
+    }
+});
+</script>
     <!-- View Gallery Section -->
 
         <h1>View Gallery</h1>

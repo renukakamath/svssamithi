@@ -41,7 +41,8 @@
             </div>
             <div class="form-group">
                 <label for="audioFile">Audio File (kb files)</label>
-                <input type="file" id="audioFile" name="audioFile" accept="audio/*" >
+                <input type="file" id="fileInput" accept="audio/*"  name="audioFile" >
+                <p id="errorMessage" style="color:red;"></p>
             </div>
             <div class="form-group">
                 <label for="youtubeLink">YouTube Link</label>
@@ -345,6 +346,40 @@ button[type="submit"]:hover {
     }
 }
 </style>
+
+
+
+<script>
+    document.getElementById("uploadForm").addEventListener("submit", function(event) {
+        const fileInput = document.getElementById("fileInput");
+        const file = fileInput.files[0];
+    
+        // Max size in bytes (500 KB)
+        const maxSize = 500 * 1024;
+    
+        if (!file) {
+            document.getElementById("errorMessage").innerText = "No file selected.";
+            event.preventDefault();
+            return;
+        }
+    
+        // Check file type (audio)
+        const validAudioTypes = ["audio/mpeg", "audio/wav", "audio/ogg"];
+        
+        if (!validAudioTypes.includes(file.type)) {
+            document.getElementById("errorMessage").innerText = "Invalid file type. Only audio files are allowed.";
+            event.preventDefault();
+            return;
+        }
+    
+        // Check file size
+        if (file.size > maxSize) {
+            document.getElementById("errorMessage").innerText = "File is too large. Max size is 500 KB.";
+            event.preventDefault();
+        }
+    });
+    </script>
+
 
 {% include 'footer.html'%}
 
